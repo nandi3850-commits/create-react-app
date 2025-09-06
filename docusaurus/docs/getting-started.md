@@ -1,162 +1,72 @@
----
-id: getting-started
-title: Getting Started
----
+import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
-Create React App is an officially supported way to create single-page React
-applications. It offers a modern build setup with no configuration.
+export default function RecognitionPyramid() {
+  return (
+    <div className="flex flex-col items-center p-6 bg-gray-50 min-h-screen">
+      <h1 className="text-3xl font-bold mb-6 text-gray-800">Recognition & Rewards Pyramid</h1>
+      <div className="relative w-full max-w-2xl">
+        {/* Pyramid Shape */}
+        <div className="flex flex-col items-center space-y-4">
+          {/* Annual Awards */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="w-1/2 bg-yellow-500 text-white text-center p-4 rounded-2xl shadow-lg"
+          >
+            <h2 className="text-xl font-semibold">Annual Awards</h2>
+            <p className="text-sm">Elite Excellence & Long-term Achievement</p>
+          </motion.div>
 
-## Quick Start
+          {/* Excellerator Awards */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="w-2/3 bg-purple-500 text-white text-center p-4 rounded-2xl shadow-lg"
+          >
+            <h2 className="text-xl font-semibold">Excellerator Awards</h2>
+            <p className="text-sm">Strategic Impact & Innovation</p>
+          </motion.div>
 
-```sh
-npx create-react-app my-app
-cd my-app
-npm start
-```
+          {/* Spot Awards */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="w-4/5 bg-blue-500 text-white text-center p-4 rounded-2xl shadow-lg"
+          >
+            <h2 className="text-xl font-semibold">Spot Awards</h2>
+            <p className="text-sm">Instant Recognition for High Performance</p>
+          </motion.div>
 
-> If you've previously installed `create-react-app` globally via `npm install -g create-react-app`, we recommend you uninstall the package using `npm uninstall -g create-react-app` or `yarn global remove create-react-app` to ensure that `npx` always uses the latest version.
+          {/* Milestone Awards */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="w-10/12 bg-green-500 text-white text-center p-4 rounded-2xl shadow-lg"
+          >
+            <h2 className="text-xl font-semibold">Milestone Awards</h2>
+            <p className="text-sm">Celebrating Loyalty & Tenure</p>
+          </motion.div>
 
-_([npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) comes with npm 5.2+ and higher, see [instructions for older npm versions](https://gist.github.com/gaearon/4064d3c23a77c74a3614c498a8bb1c5f))_
-
-Then open [http://localhost:3000/](http://localhost:3000/) to see your app.
-
-When you’re ready to deploy to production, create a minified bundle with `npm run build`.
-
-<p align='center'>
-<img src='https://cdn.jsdelivr.net/gh/facebook/create-react-app@27b42ac7efa018f2541153ab30d63180f5fa39e0/screencast.svg' width='600' alt='npm start' />
-</p>
-
-### Get Started Immediately
-
-You **don’t** need to install or configure tools like webpack or Babel. They are preconfigured and hidden so that you can focus on the code.
-
-Create a project, and you’re good to go.
-
-## Creating an App
-
-**You’ll need to have Node >= 14 on your local development machine** (but it’s not required on the server). You can use [nvm](https://github.com/creationix/nvm#installation) (macOS/Linux) or [nvm-windows](https://github.com/coreybutler/nvm-windows#node-version-manager-nvm-for-windows) to switch Node versions between different projects.
-
-To create a new app, you may choose one of the following methods:
-
-### npx
-
-```sh
-npx create-react-app@latest my-app
-```
-
-_([npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) comes with npm 5.2+ and higher, see [instructions for older npm versions](https://gist.github.com/gaearon/4064d3c23a77c74a3614c498a8bb1c5f))_
-
-### npm
-
-```sh
-npm init react-app my-app
-```
-
-_`npm init <initializer>` is available in npm 6+_
-
-### Yarn
-
-```sh
-yarn create react-app my-app
-```
-
-_`yarn create` is available in Yarn 0.25+_
-
-### Selecting a template
-
-You can now optionally start a new app from a template by appending `--template [template-name]` to the creation command.
-
-If you don't select a template, we'll create your project with our base template.
-
-Templates are always named in the format `cra-template-[template-name]`, however you only need to provide the `[template-name]` to the creation command.
-
-```sh
-npx create-react-app my-app --template [template-name]
-```
-
-> You can find a list of available templates by searching for ["cra-template-\*"](https://www.npmjs.com/search?q=cra-template-*) on npm.
-
-Our [Custom Templates](custom-templates.md) documentation describes how you can build your own template.
-
-#### Creating a TypeScript app
-
-You can start a new TypeScript app using templates. To use our provided TypeScript template, append `--template typescript` to the creation command.
-
-```sh
-npx create-react-app my-app --template typescript
-```
-
-If you already have a project and would like to add TypeScript, see our [Adding TypeScript](adding-typescript.md) documentation.
-
-### Selecting a package manager
-
-When you create a new app, the CLI will use [npm](https://docs.npmjs.com) or [Yarn](https://yarnpkg.com/) to install dependencies, depending on which tool you use to run `create-react-app`. For example:
-
-```sh
-# Run this to use npm
-npx create-react-app my-app
-# Or run this to use yarn
-yarn create react-app my-app
-```
-
-## Output
-
-Running any of these commands will create a directory called `my-app` inside the current folder. Inside that directory, it will generate the initial project structure and install the transitive dependencies:
-
-```
-my-app
-├── README.md
-├── node_modules
-├── package.json
-├── .gitignore
-├── public
-│   ├── favicon.ico
-│   ├── index.html
-│   ├── logo192.png
-│   ├── logo512.png
-│   ├── manifest.json
-│   └── robots.txt
-└── src
-    ├── App.css
-    ├── App.js
-    ├── App.test.js
-    ├── index.css
-    ├── index.js
-    ├── logo.svg
-    ├── serviceWorker.js
-    └── setupTests.js
-```
-
-No configuration or complicated folder structures, only the files you need to build your app. Once the installation is done, you can open your project folder:
-
-```sh
-cd my-app
-```
-
-## Scripts
-
-Inside the newly created project, you can run some built-in commands:
-
-### `npm start` or `yarn start`
-
-Runs the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will automatically reload if you make changes to the code. You will see the build errors and lint warnings in the console.
-
-<p align='center'>
-<img src='https://cdn.jsdelivr.net/gh/marionebl/create-react-app@9f6282671c54f0874afd37a72f6689727b562498/screencast-error.svg' width='600' alt='Build errors' />
-</p>
-
-### `npm test` or `yarn test`
-
-Runs the test watcher in an interactive mode. By default, runs tests related to files changed since the last commit.
-
-[Read more about testing](running-tests.md).
-
-### `npm run build` or `yarn build`
-
-Builds the app for production to the `build` folder. It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.
-
-Your app is ready to be deployed.
+          {/* Everyday Recognition */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="w-full bg-gray-700 text-white text-center p-4 rounded-2xl shadow-lg"
+          >
+            <h2 className="text-xl font-semibold">Everyday Recognition</h2>
+            <p className="text-sm">Daily Appreciation & Connection</p>
+          </motion.div>
+        </div>
+      </div>
+      <div className="mt-8 max-w-2xl">
+        <Card className="shadow-md">
+          <CardContent className="p-4 text-gray-700">
+            <p className="mb-2"><strong>Why this works:</strong></p>
+            <ul className="list-disc ml-5 space-y-1 text-sm">
+              <li>Grounded in academic research (Maslow, Herzberg, Deci & Ryan).</li>
+              <li>Validated by Deloitte, PwC, and O.C. Tanner practices.</li>
+              <li>Inclusive design: from everyday connection to elite excellence.</li>
+              <li>Boosts engagement, retention, and organizational culture.</li>
+            </ul>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+}
